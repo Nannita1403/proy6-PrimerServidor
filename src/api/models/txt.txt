@@ -1,0 +1,15 @@
+
+ GET que me permite traer todos los documentos de un tipo de colección. find todos los libros
+
+ GET que me permite traer un solo elemento por su id de una colección. findOne por pagina
+
+ POST que me permite crear un nuevo elemento en la colección correspondiente. nvo libro
+
+PUT que me permite crear editar un elemento por su id en una colección. editar el libro
+
+ DELETE que me permite borrar un elemento por su id en una colección. borrar el libro
+
+8️⃣ Hay otra colección relacionada con la anterior, con un método GET y otro POST, que me permiten
+ ver uno de estos datos con los datos relacionados de la anterior colección y crear los datos 
+ que nos apetezcan
+ 
