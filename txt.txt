@@ -1,0 +1,4 @@
+usuario: nannimagi
+clave: i2IHy1PoJMSzSgiB
+
+mongodb+srv://nannimagi:i2IHy1PoJMSzSgiB@cluster0.orsihjf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
