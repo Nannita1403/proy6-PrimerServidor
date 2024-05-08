@@ -5,7 +5,9 @@ const bookRoutes = require("./src/api/routes/book");
 const autorRoutes = require("./src/api/routes/autor");
 
 const app = express();
+app.use(express.json());
 connectDB();
+
 app.use("/api/v1/books", bookRoutes);
 app.use("/api/v1/autor", autorRoutes);
 app.use("*", (req, res, next) => {

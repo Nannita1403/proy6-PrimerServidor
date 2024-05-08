@@ -61,15 +61,15 @@ const getBooks = async (req, res, next)=> {
         }
     }
 
-     //!Busqueda por Pages - el primero con esas paginas
-    const getBooksByPages = async (req,res,next) => {
+     //!Busqueda por Categories -
+    const getBooksByCategories = async (req,res,next) => {
         try {
-            const {pages} = req.params;
-            const books = await Book.findOne(pages);
+            const {categorie} = req.params;
+            const books = await Book.findOne(categorie);
             return res.status(200).json(books);
         } catch (error) {
             return res.status(400).json("Error");
         }
     }
 // exporto la funcion
-module.exports = { getBooks, postBook, updateBook, deleteBook, getBooksByPrice, getBooksByPages};
+module.exports = { getBooks, postBook, updateBook, deleteBook, getBooksByPrice, getBooksByCategories};
