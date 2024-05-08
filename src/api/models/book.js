@@ -7,7 +7,7 @@ const bookSchema = new mongoose.Schema(
     price: {type: Number, require: true},
     title: {type: String, require:true},
     pages: {type: Number, require:true},
-    tematic: {type:String, require: true},
+    tematic: {type:String, require: false},
     //? Aca lo que logro es poder relacionar las dos colecciones (books y autor)
     autor: {type: mongoose.Types.ObjectId, require:false, ref: "autors"},
 },

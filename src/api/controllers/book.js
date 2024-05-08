@@ -8,7 +8,7 @@ const Book = require("../models/book");
             imgUrl: req.body.imgUrl,
             price: req.body.price,
             pages: req.body.pages,
-            tematic: req.body.pages,
+            tematic: req.body.tematic,
         });
         const bookSaved = await newBook.save();
 
