@@ -5,7 +5,7 @@ const autorSchema = new mongoose.Schema(
 {
     imgUrl: {type: String, require: true},
     name: {type: String, require:true},
-    surname: {type: Number, require:true},
+    surname: {type: String, require:true},
     otherBooks: {type:String, require: false}
 },
 {

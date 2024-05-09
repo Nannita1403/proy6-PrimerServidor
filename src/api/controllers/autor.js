@@ -17,7 +17,7 @@ const Autor = require("../models/autor");
     //! Read
 const getAutors = async (req, res, next)=> {
     try {
-    const allAutors = await Autor.find().populate("autor");
+    const allAutors = await Autor.find();
     return res.status(200).json(allAutors);
     } catch (error) {
         return res.status(400).json("Ha fallado la petición");
