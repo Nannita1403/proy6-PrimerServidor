@@ -9,6 +9,7 @@ const Book = require("../models/book");
             price: req.body.price,
             pages: req.body.pages,
             tematic: req.body.tematic,
+            autor: req.body.autor,
         });
         const bookSaved = await newBook.save();
 
@@ -19,8 +20,8 @@ const Book = require("../models/book");
     //! Read
 const getBooks = async (req, res, next)=> {
     try {
-    const allBooks = await Book.find().populate("autor");
-    return res.status(200).json(allBooks);
+        const allBooks = await Book.find().populate("autor");
+        return res.status(200).json(allBooks);
     } catch (error) {
         return res.status(400).json("Ha fallado la petición");
     }
