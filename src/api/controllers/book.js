@@ -7,9 +7,8 @@ const Book = require("../models/book");
             title: req.body.title,
             imgUrl: req.body.imgUrl,
             price: req.body.price,
-            pages: req.body.pages,
-            tematic: req.body.tematic,
             autor: req.body.autor,
+            categorie: req.body.categorie,
         });
         const bookSaved = await newBook.save();
 
@@ -66,11 +65,21 @@ const getBooks = async (req, res, next)=> {
     const getBooksByCategories = async (req,res,next) => {
         try {
             const {categorie} = req.params;
-            const books = await Book.findOne(categorie);
+            const books = await Book.find(categorie);
             return res.status(200).json(books);
         } catch (error) {
             return res.status(400).json("Error");
         }
     }
+     //!Busqueda por Autor -
+     const getBooksByAutor = async (req,res,next) => {
+            const { autor } = req.params;
+            try {
+                const autorByName = await Autor.find({ autor: name });
+                return res.status(200).json(autorByName);
+        } catch (error) {
+            return res.status(400).json("Error");
+        }
+    }
 // exporto la funcion
-module.exports = { getBooks, postBook, updateBook, deleteBook, getBooksByPrice, getBooksByCategories};
+module.exports = { getBooks, postBook, updateBook, deleteBook, getBooksByPrice, getBooksByCategories, getBooksByAutor};

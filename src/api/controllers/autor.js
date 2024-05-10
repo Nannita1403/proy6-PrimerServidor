@@ -6,7 +6,6 @@ const Autor = require("../models/autor");
         const newAutor = new Autor ({
             imgUrl: req.body.imgUrl,
             name: req.body.name,
-            surname: req.body.surname,
             otherBooks: req.body.otherBooks,
         });
         const autorSaved = await newAutor.save();

@@ -6,7 +6,7 @@ const bookSchema = new mongoose.Schema(
     imgUrl: {type: String, require: true},
     price: {type: Number, require: true},
     title: {type: String, require:true},
-    autor: {type: mongoose.Types.ObjectId, require:false, ref: "autor"},
+    autor: {type: String, requiere:false},
     categorie: {
         type:String, 
         require: false, 
