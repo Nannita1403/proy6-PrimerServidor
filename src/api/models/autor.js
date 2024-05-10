@@ -6,6 +6,7 @@ const autorSchema = new mongoose.Schema(
     imgUrl: {type: String, require: true},
     name: {type: String, require:true},
     surname: {type: String, require:true},
+    books:[{ type: mongoose.Types.ObjectId, ref: "books", required: false}],
     otherBooks: {type:String, require: false}
 },
 {
