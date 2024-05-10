@@ -22,7 +22,16 @@ const getAutors = async (req, res, next)=> {
         return res.status(400).json("Ha fallado la petición");
     }
 };
-
+//!Busqueda por Autor -
+const getAutorbyId = async (req,res,next) => {
+    try {    
+    const { id } = req.params;
+        const autor = await Autor.findById(id).populate("books");
+        return res.status(200).json(autor);
+    } catch (error) {
+        return res.status(400).json("Error");
+    }
+}
     //!Update
     const updateAutor = async (req,res,next) => {
         try {
@@ -37,4 +46,4 @@ const getAutors = async (req, res, next)=> {
         }
     }
 // exporto la funcion
-module.exports = { getAutors, postAutor, updateAutor};
+module.exports = { getAutors, postAutor, updateAutor, getAutorbyId};

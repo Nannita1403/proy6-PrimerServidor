@@ -66,21 +66,12 @@ const getBooks = async (req, res, next)=> {
     const getBooksByCategories = async (req,res,next) => {
         try {
             const {categorie} = req.params;
-            const books = await Book.find(categorie);
+            const books = await Book.find({categorie});
             return res.status(200).json(books);
         } catch (error) {
             return res.status(400).json("Error");
         }
     }
-     //!Busqueda por Autor -
-     const getBooksByAutor = async (req,res,next) => {
-        try {    
-        const { autor } = req.params;
-            const books = await Book.findById(Autor);
-            return res.status(200).json(books);
-        } catch (error) {
-            return res.status(400).json("Error");
-        }
-    }
+
 // exporto la funcion
-module.exports = { getBooks, postBook, updateBook, deleteBook, getBooksByPrice, getBooksByCategories, getBooksByAutor};
+module.exports = { getBooks, postBook, updateBook, deleteBook, getBooksByPrice, getBooksByCategories};
