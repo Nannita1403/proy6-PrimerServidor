@@ -1,3 +1,4 @@
+const Autor = require("../models/autor");
 const Book = require("../models/book");
 //crud completo: Create - Read - Use - Delete
 //! Create
@@ -73,10 +74,10 @@ const getBooks = async (req, res, next)=> {
     }
      //!Busqueda por Autor -
      const getBooksByAutor = async (req,res,next) => {
-            const { autor } = req.params;
-            try {
-                const autorByName = await Autor.find({ autor: name });
-                return res.status(200).json(autorByName);
+        try {    
+        const { autor } = req.params;
+            const books = await Book.findById(Autor);
+            return res.status(200).json(books);
         } catch (error) {
             return res.status(400).json("Error");
         }
