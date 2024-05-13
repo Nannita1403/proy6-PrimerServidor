@@ -16,7 +16,7 @@ const Autor = require("../models/autor");
     //! Read
 const getAutors = async (req, res, next)=> {
     try {
-    const allAutors = await Autor.find();
+    const allAutors = await Autor.find().populate("books");
     return res.status(200).json(allAutors);
     } catch (error) {
         return res.status(400).json("Ha fallado la petición");
@@ -36,8 +36,10 @@ const getAutorbyId = async (req,res,next) => {
     const updateAutor = async (req,res,next) => {
         try {
             const {id} =req.params;
+            const oldAutor = await Autor.findById(id); //Hago un get del autor antes de modifciarlo
             const newAutor = new Autor(req.body);
             newAutor._id = id;
+            newAutor.books = [...oldAutor.books, ...req.body.books] //aca hago un array nuevo y sumo los juegos viejos y los nuevos
             const Update = await Autor.findByIdAndUpdate(id, newAutor, {new:true,}
             );
             return res.status(200).json(Update);
